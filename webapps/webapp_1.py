@@ -55,7 +55,7 @@ def main():
         "y" : 5,
         "z" : 4,
         "rotation":0,
-        "rotation2":0,
+        "rotationY":0,
 
     }
     
@@ -90,7 +90,7 @@ def main():
     param_folder.add(geom1_params, 'y', 1,30,1)
     param_folder.add(geom1_params, 'z', 1,20,1)
     param_folder.add(geom1_params, 'rotation', 0,180)
-    param_folder.add(geom1_params, 'rotation2', 0,180)
+    param_folder.add(geom1_params, 'rotationY', 0,180)
   
     param_folder.open()
     
@@ -108,7 +108,7 @@ def Matrix():
                 
                     #for update
                     global z,sizeold, scaleold, rotateold
-                    z = geom1_params.rotation2
+                    z = geom1_params.rotationY
                     sizeold = geom1_params.size
                     scaleold = geom1_params.scale
                     rotateold = geom1_params.rotation
@@ -129,7 +129,7 @@ def Matrix():
                     cube.rotateOnAxis(center, math.radians(geom1_params.rotation))
     
                     #rotating around axis
-                    geom.rotateY(math.radians(geom1_params.rotation2)/geom1_params.y*k)
+                    geom.rotateY(math.radians(geom1_params.rotationY)/geom1_params.y*k)
                 
                      
                     cubes.append(cube)
@@ -161,7 +161,7 @@ def update_cubes():
             Matrix()
     
         
-    if z != geom1_params.rotation2 or sizeold != geom1_params.size or scaleold != geom1_params.scale or rotateold != geom1_params.rotation:
+    if z != geom1_params.rotationY or sizeold != geom1_params.size or scaleold != geom1_params.scale or rotateold != geom1_params.rotation:
         for cube in cubes: scene.remove(cube)
         for cube in cube_lines: scene.remove(cube)
             
@@ -169,16 +169,6 @@ def update_cubes():
         cube_lines = []
            
         Matrix()
-    
- 
-        
-        
-            
-        
-            
-
-
-                
 
 # ----------------------------------------------------------------------------------------------------------
                
