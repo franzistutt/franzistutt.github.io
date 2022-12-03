@@ -21,16 +21,16 @@
 
         <main id="main-doc">
             <h1>
-                Tree landscape
+                Cubes
             </h1>
             <section class="main-section" id="description">
                 <header>
                     Project Description
                 </header>
                 <p>
-			In the second assignment the goal was to generate a variety of trees using a recursive function called “system”. The generated geometry is based on a ruleset of symbols, set in the function “generate”.Based on the symbols the function “draw system”, translates the symbols in order to draw the branches of the tree. In the same function the apples are created depending on their location. The integrated GUI slider enable a change in size, height, and number ob trees in X and Y direction to create a structured but pre designed landscape of trees. Using the function “update landscape”, the tree size is generated adaptable, depending on the number of recursions. Using a nested loop inside this function the amount of trees is set flexible in the generated landscape. By changing the parameter height, the length of each line of the tree is extend. Additionally the look of the trees is defined by the different angles of their branche in relation to the position. This enables the user to design a landscape with a variety of different trees as the outcome.
+			In this assignment the main idea is to generate cubes using nested loops. After setting up the envirnment, the GUI slider is integrated to the project in order to change the size, the scale, the amount of cubes and make the rotation more flexible. The function “Matrix” achieves a change in size, scale, number of cubes and rotation through the nested loops. The first loop changes the quantity of the cubes in Y direction. The second loop in X direction an the last loop in Z direction. After the cubes are generated flexible, depending on their in size and scale factor they get translated in relation to their size. The parameter rotation rotates the created geometry around the Y axis, depending on the distance between the cube and the axis. Additionally the cubes are able to rotate around their own center vector, through a second rotation parameter.
                 </p>
-                <img src="../images/pictures tree webapp.jpg" alt="Design Iterations">
+                <img src="../images/picture cubes.jpg" alt="Design Iterations">
             </section>
 
             <section class="main-section" id="algorithm">
@@ -41,7 +41,7 @@
 			in the 
                 <br>
                 </p>
-                <img src="../images/chartflow tree.jpg" alt="Algorithm FlowChart">
+                <img src="../images/flowchart cube.jpg" alt="Algorithm FlowChart">
             </section>
 
             <section class="main-section" id="web-app">
