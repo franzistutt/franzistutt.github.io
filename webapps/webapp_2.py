@@ -8,12 +8,12 @@ import math
 # ----------------------------------------------------------------------------------------------------------
 global tree_params    
 tree_params = {  
-        "size" : 1,
-        "old_size" : 2,
-        "height" :4,
+        "size" : 2,
+        "old_size" : 1,
+        "height" :3,
         "old_height" : 1,
-        "x" : 4,
-        "y" : 2,
+        "x" : 2,
+        "y" : 4,
         "old_x" : 2,
         "old_y" : 1,
 }
