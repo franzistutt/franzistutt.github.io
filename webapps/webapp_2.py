@@ -42,7 +42,7 @@ def main():
     back_color = THREE.Color.new("rgb(255,255,255)")
     scene.background = back_color
     
-    camera = THREE.PerspectiveCamera.new(75, window.innerWidth/window.innerHeight, 0.1, 10000)
+    camera = THREE.PerspectiveCamera.new(85, window.innerWidth/window.innerHeight, 0.1, 10000)
     camera.position.z = 50
     camera.position.z = 40
     camera.position.z = 20
