@@ -51,7 +51,7 @@ def main():
         "scale": 0.5,
         "x" : 2, 
         "y" : 2,
-        "z" : 1,
+        "z" : 3,
         "rotation":0,
         "rotation2":0,
 
