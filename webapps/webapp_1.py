@@ -22,8 +22,10 @@ def main():
     scene = THREE.Scene.new()
     back_color = THREE.Color.new(1,1,1)
     scene.background = back_color
-    camera = THREE.PerspectiveCamera.new(75, window.innerWidth/window.innerHeight, 0.1, 1000)
-    camera.position.z = 50
+    camera = THREE.PerspectiveCamera.new(70, window.innerWidth/window.innerHeight, 0.1, 10000)
+    camera.position.z = 60
+    camera.position.x = 40
+    camera.position.y = 20
     scene.add(camera)
 
     # Graphic Post Processing
