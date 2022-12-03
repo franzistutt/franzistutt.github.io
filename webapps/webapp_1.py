@@ -20,7 +20,7 @@ def main():
 
     #scene
     scene = THREE.Scene.new()
-    back_color = THREE.Color.new(0.1,0.1,0.1)
+    back_color = THREE.Color.new(1,1,1)
     scene.background = back_color
     camera = THREE.PerspectiveCamera.new(75, window.innerWidth/window.innerHeight, 0.1, 1000)
     camera.position.z = 50
@@ -49,9 +49,9 @@ def main():
     geom1_params = {
         "size" : 2,
         "scale": 0.5,
-        "x" : 2, 
-        "y" : 2,
-        "z" : 3,
+        "x" : 3, 
+        "y" : 5,
+        "z" : 4,
         "rotation":0,
         "rotation2":0,
 
@@ -63,14 +63,14 @@ def main():
     #create Materials
     global material, line_material
     
-    color = THREE.Color.new(255, 255, 255)
+    color = THREE.Color.new(255, 0, 0)
     material = THREE.MeshBasicMaterial.new(color)
     material.transparent = True
     material.opacity = 0.5
     material.color = color
     
     line_material = THREE.LineBasicMaterial.new()
-    line_material.color = THREE.Color.new(255,255,255)
+    line_material.color = THREE.Color.new(255,0,0)
     
     Matrix()
     
