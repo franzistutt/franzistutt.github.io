@@ -44,6 +44,8 @@ def main():
     
     camera = THREE.PerspectiveCamera.new(75, window.innerWidth/window.innerHeight, 0.1, 10000)
     camera.position.z = 50
+    camera.position.z = 40
+    camera.position.z = 20
 
     scene.add(camera)
 
