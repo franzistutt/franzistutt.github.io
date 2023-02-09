@@ -5,10 +5,8 @@ from pyodide.ffi import create_proxy, to_js
 # Import python module
 import math
 
-# ----------------------------------------------------------------------------------------------------------
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def main():
-    #-----------------------------------------------------------------------
 
     global renderer, scene, camera, controls,composer, axesHelper
     
@@ -18,14 +16,16 @@ def main():
     renderer.setSize(window.innerWidth, window.innerHeight)
     document.body.appendChild(renderer.domElement)
 
+    
     #scene
     scene = THREE.Scene.new()
-    back_color = THREE.Color.new(1,1,1)
+    back_color = THREE.Color.new("rgb(255,255,255)")
     scene.background = back_color
-    camera = THREE.PerspectiveCamera.new(70, window.innerWidth/window.innerHeight, 0.1, 10000)
-    camera.position.z = 60
-    camera.position.x = 40
-    camera.position.y = 20
+    camera = THREE.PerspectiveCamera.new(70, window.innerWidth/window.innerHeight, 10, 10000)
+    camera.position.z = 0
+    camera.position.x = -40
+    camera.position.y = -20
+    camera.rotation.z = 0
     scene.add(camera)
 
     # Graphic Post Processing
@@ -33,14 +33,13 @@ def main():
     post_process()
 
     #axesHelper
-    axesHelper = THREE.AxesHelper.new(100)
-    scene.add(axesHelper)
+    # axesHelper = THREE.AxesHelper.new(100)
+    # scene.add(axesHelper)
     
     #responsive window
     resize_proxy = create_proxy(on_window_resize)
     window.addEventListener('resize', resize_proxy) 
    
-    #-----------------------------------------------------------------------
     # Geometry 
     global geom1_params, cubes, cube_lines
     
@@ -55,7 +54,7 @@ def main():
         "y" : 5,
         "z" : 4,
         "rotation":0,
-        "rotationY":0,
+        "rotation2":0,
 
     }
     
@@ -77,12 +76,11 @@ def main():
     Matrix()
     
     
-    #-----------------------------------------------------------------------
     # Mouse orbit control
     controls = THREE.OrbitControls.new(camera, renderer.domElement)
 
     # GUI
-    gui = window.dat.GUI.new()
+    gui = window.lil.GUI.new()
     param_folder = gui.addFolder('Parameters')
     param_folder.add(geom1_params, 'size', 0.5,10,0.1)
     param_folder.add(geom1_params, 'scale', 0.5,1,0.1)
@@ -90,17 +88,14 @@ def main():
     param_folder.add(geom1_params, 'y', 1,30,1)
     param_folder.add(geom1_params, 'z', 1,20,1)
     param_folder.add(geom1_params, 'rotation', 0,180)
-    param_folder.add(geom1_params, 'rotationY', 0,180)
+    param_folder.add(geom1_params, 'rotation2', 0,180)
   
     param_folder.open()
     
     #-----------------------------------------------------------------------
     render()
     
-# ----------------------------------------------------------------------------------------------------------
-
-
-                    
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------         
 def Matrix():
         for k in range(geom1_params.y):
             for i in range(geom1_params.x):
@@ -108,7 +103,7 @@ def Matrix():
                 
                     #for update
                     global z,sizeold, scaleold, rotateold
-                    z = geom1_params.rotationY
+                    z = geom1_params.rotation2
                     sizeold = geom1_params.size
                     scaleold = geom1_params.scale
                     rotateold = geom1_params.rotation
@@ -129,7 +124,7 @@ def Matrix():
                     cube.rotateOnAxis(center, math.radians(geom1_params.rotation))
     
                     #rotating around axis
-                    geom.rotateY(math.radians(geom1_params.rotationY)/geom1_params.y*k)
+                    geom.rotateY(math.radians(geom1_params.rotation2)/geom1_params.y*k)
                 
                      
                     cubes.append(cube)
@@ -141,10 +136,8 @@ def Matrix():
                     
                     cube_lines.append(line)
                     scene.add(line,cube)
-                
-                
 
-# ----------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------         
                
 def update_cubes():
     global cubes, cube_lines, material, line_material
@@ -161,7 +154,7 @@ def update_cubes():
             Matrix()
     
         
-    if z != geom1_params.rotationY or sizeold != geom1_params.size or scaleold != geom1_params.scale or rotateold != geom1_params.rotation:
+    if z != geom1_params.rotation2 or sizeold != geom1_params.size or scaleold != geom1_params.scale or rotateold != geom1_params.rotation:
         for cube in cubes: scene.remove(cube)
         for cube in cube_lines: scene.remove(cube)
             
@@ -170,7 +163,7 @@ def update_cubes():
            
         Matrix()
 
-# ----------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------         
                
 # Simple render and animate
 def render(*args):
@@ -211,7 +204,8 @@ def on_window_resize(event):
 
     #post processing after resize
     post_process()
-#-----------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------         
+
 #RUN THE MAIN PROGRAM
 if __name__=='__main__':
     main()
