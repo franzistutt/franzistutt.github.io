@@ -1,0 +1,49 @@
+.lil-gui { 
+    --border-top-color: white;
+    --width: 250px;
+	--name-width: 65%;
+    --folder-indent: 10px;
+    --widget-height: 16px;
+   
+    --text-color: rgb(87, 86, 86);
+
+	--background-color: rgb(255, 255, 255);
+	--widget-color: rgba(248, 180, 180, 0.322);
+    --widget-border-radius: 5px;
+	--padding: 2px;
+   
+    
+    --title-background-color: rgb(255, 255, 255);
+    --title-text-color:  rgb(74, 73, 73);
+}
+
+.controller.number {
+    
+        --number-color: rgb(255, 0, 0);
+        ---widget-height: 16px;
+    }
+    .hasSlider{
+        ---widget-height: 16px;
+    }
+    
+
+    .slider{
+        
+        --widget-height: 16px;
+        --slider-knob-width: 1px;
+        --widget-color: rgba(248, 180, 180, 0.322);
+        --widget-border-radius: 5px;
+    }
+
+
+.py-terminal {
+    min-height: 10em;
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    overflow: auto;
+}
+
+.py-terminal-hidden {
+    display: none;
+}
