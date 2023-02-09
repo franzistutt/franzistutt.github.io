@@ -42,10 +42,10 @@ def main():
     back_color = THREE.Color.new("rgb(255,255,255)")
     scene.background = back_color
     
-    camera = THREE.PerspectiveCamera.new(85, window.innerWidth/window.innerHeight, 0.1, 10000)
-    camera.position.z = 50
-    camera.position.z = 40
-    camera.position.z = 20
+    camera = THREE.PerspectiveCamera.new(40, window.innerWidth/window.innerHeight, 0.1, 10000)
+    camera.position.z = 500
+    camera.position.x = 500
+    camera.position.y = 200
 
     scene.add(camera)
 
@@ -65,7 +65,7 @@ def main():
     
    
     #GUI
-    gui = window.dat.GUI.new()
+    gui = window.lil.GUI.new()
     sizechanger = gui.addFolder('properties')
     sizechanger.add(tree_params, 'size')
     sizechanger.add(tree_params, 'height')
