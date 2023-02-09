@@ -5,8 +5,10 @@ from pyodide.ffi import create_proxy, to_js
 # Import python module
 import math
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
+
 def main():
+    #-----------------------------------------------------------------------
 
     global renderer, scene, camera, controls,composer, axesHelper
     
@@ -40,6 +42,7 @@ def main():
     resize_proxy = create_proxy(on_window_resize)
     window.addEventListener('resize', resize_proxy) 
    
+    #-----------------------------------------------------------------------
     # Geometry 
     global geom1_params, cubes, cube_lines
     
@@ -76,6 +79,7 @@ def main():
     Matrix()
     
     
+    #-----------------------------------------------------------------------
     # Mouse orbit control
     controls = THREE.OrbitControls.new(camera, renderer.domElement)
 
